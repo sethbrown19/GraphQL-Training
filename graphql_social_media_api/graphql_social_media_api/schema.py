@@ -14,7 +14,7 @@ class CreateUser(graphene.Mutation):
     class Arguments:
         input = UserInput(required=True)
         
-    ok = graphene.Boolean
+    ok = graphene.Boolean()
     user = graphene.Field(User)    
     
     @staticmethod
@@ -26,7 +26,6 @@ class CreateUser(graphene.Mutation):
         except Exception:
             return CreateUser(ok=False, user=None)
         
-        instance.followers.set([])
         return CreateUser(ok=True, user=instance)
     
 

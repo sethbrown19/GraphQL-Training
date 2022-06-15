@@ -39,7 +39,7 @@ class GraphQLUserTest(GraphQLTestCase):
                     "ok": True,
                     "user": {
                         "id": "3",
-                        "name": "Elon Musk",
+                        "name": "Elon Musk"
                     }
                 }
             }
@@ -50,8 +50,7 @@ class GraphQLUserTest(GraphQLTestCase):
             mutation creatUser {
                 createUser(input: {
                     name: "Elon Musk"
-                })
-                {
+                }) {
                     ok
                     user {
                         id
@@ -62,6 +61,7 @@ class GraphQLUserTest(GraphQLTestCase):
             """
         )
 
-        
         self.assertEqual(expected, res.json())
         self.assertEqual(res.status_code, 200)
+        
+
